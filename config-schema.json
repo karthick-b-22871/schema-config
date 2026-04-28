@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CloudFW Module Configuration Schema",
+  "type": "object",
+
+  "required": [
+    "module",
+    "categoryConfig",
+    "redis-pubsub",
+    "moduleSpecificHandlingKeys",
+    "V1toV2MigrationKeys"
+  ],
+
+  "properties": {
+
+    "module": {
+      "type": "string",
+      "minLength": 1
+    },
+
+    "categoryConfig": {
+      "type": "object",
+      "required": [
+        "category",
+        "redisPoolName",
+        "redis.pool.expiry"
+      ],
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "redisPoolName": {
+          "type": "string"
+        },
+        "redis.pool.expiry": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "redis-pubsub": {
+      "type": "object",
+      "required": ["pubsub_classes"],
+      "properties": {
+        "pubsub_classes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "moduleSpecificHandlingKeys": {
+      "type": "object",
+      "required": [
+        "redis.module.expiry",
+        "seperate.redispool.keys",
+        "static.cache.backup.keys"
+      ],
+      "properties": {
+
+        "redis.module.expiry": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        },
+
+        "seperate.redispool.keys": {
+          "type": "string"
+        },
+
+        "static.cache.backup.keys": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "V1toV2MigrationKeys": {
+      "type": "object",
+      "required": [
+        "allowedRedisKeys.version_2",
+        "v2.cache.key.patterns",
+        "keysInCustomPool"
+      ],
+
+      "properties": {
+
+        "allowedRedisKeys.version_2": {
+          "type": "string"
+        },
+
+        "v2.cache.key.patterns": {
+          "type": "string"
+        },
+
+        "keysInCustomPool": {
+          "type": "string"
+        }
+      },
+
+      "additionalProperties": false
+    }
+
+  },
+
+  "additionalProperties": false
+}
