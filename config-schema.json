@@ -6,16 +6,13 @@
   "required": [
     "module",
     "categoryConfig",
-    "redis-pubsub",
-    "moduleSpecificHandlingKeys",
-    "V1toV2MigrationKeys"
   ],
 
   "properties": {
 
     "module": {
       "type": "string",
-      "minLength": 1
+      "minLength": 3
     },
 
     "categoryConfig": {
