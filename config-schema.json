@@ -5,14 +5,15 @@
 
   "required": [
     "module",
-    "categoryConfig",
-    "$schema": {
-      "type": "string"
-    }
+    "categoryConfig"
   ],
 
   "properties": {
-
+    
+    "$schema": {
+      "type": "string"
+    }
+    
     "module": {
       "type": "string",
       "minLength": 3
