@@ -6,6 +6,9 @@
   "required": [
     "module",
     "categoryConfig",
+    "$schema": {
+      "type": "string"
+    }
   ],
 
   "properties": {
