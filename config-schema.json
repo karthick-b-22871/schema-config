@@ -10,10 +10,6 @@
 
   "properties": {
     
-    "$schema": {
-      "type": "string"
-    }
-    
     "module": {
       "type": "string",
       "minLength": 3
